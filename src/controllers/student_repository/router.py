@@ -1,18 +1,22 @@
+"""router.py"""
+# Thied party
 # My Stuff
-from src.schemas.student import StudentModel
-from src.schemas.student import StudentCollection
-from src.schemas.student import UpdateStudentModel
+from fastapi import APIRouter, Body, status
+
 from src.controllers.student_repository.common import StudentCommonRepository
-
-from fastapi import Body
-from fastapi import APIRouter
-from fastapi import status
-
+from src.schemas.student import (StudentCollection, StudentModel,
+                                 UpdateStudentModel)
 
 student_repository = StudentCommonRepository("students")
 
 
 def get_student_router() -> APIRouter:
+    """
+    Returns an APIRouter instance with routes for handling student-related operations.
+
+    Returns:
+        APIRouter: An instance of APIRouter with student routes.
+    """
     router = APIRouter()
 
     # Common routers

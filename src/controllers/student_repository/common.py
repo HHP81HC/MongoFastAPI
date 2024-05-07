@@ -1,20 +1,22 @@
+"""common.py - This module contains the common repository for the student entity."""
+# Third party
 # My Stuff
-from src.utils.client import db
-from src.schemas.student import StudentModel
-from src.schemas.student import StudentCollection
-from src.schemas.student import UpdateStudentModel
-from src.controllers.base_repository.interface import BaseRepository
-
 from bson import ObjectId
-from fastapi import Body
-from fastapi import HTTPException
-from fastapi import status
-from pymongo import ReturnDocument
-from motor.core import AgnosticCollection
+from fastapi import Body, HTTPException, status
 from fastapi.responses import Response
+from pymongo import ReturnDocument
+
+from src.controllers.base_repository.interface import BaseRepository
+from src.schemas.student import (StudentCollection, StudentModel,
+                                 UpdateStudentModel)
 
 
 class StudentCommonRepository(BaseRepository):
+    """
+    Repository class for handling common operations related to student data.
+
+    This class provides methods for creating, listing, showing, updating, and deleting student records in the database.
+    """
 
     def __init__(self, collection_name: str) -> None:
         super().__init__(collection_name)
@@ -72,8 +74,7 @@ class StudentCommonRepository(BaseRepository):
             )
             if update_result is not None:
                 return update_result
-            else:
-                raise HTTPException(status_code=404, detail=f"Student {id} not found")
+            raise HTTPException(status_code=404, detail=f"Student {id} not found")
 
         # The update is empty, but we should still return the matching document:
         if (existing_student := await self.collection.find_one({"_id": id})) is not None:

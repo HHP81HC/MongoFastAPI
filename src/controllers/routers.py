@@ -1,12 +1,12 @@
 """Create router for API"""
 # Standard Library
-import sys
 import inspect
-
-# My Stuff
-from src.controllers import *  # noqa
+import sys
 
 from fastapi import APIRouter
+
+# My Stuff
+from .student_repository.router import get_student_router
 
 
 router = APIRouter(prefix="/api")

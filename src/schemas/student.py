@@ -1,18 +1,14 @@
+"""schemas/student.py"""
 # Standard Library
-from typing import List
-from typing import Optional
+from typing import List, Optional
+
+from bson import ObjectId
+from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic.functional_validators import BeforeValidator
+from typing_extensions import Annotated
 
 # My Stuff
 from src.utils.optional import partial_model
-
-from bson import ObjectId
-from pydantic import Field
-from pydantic import EmailStr
-from pydantic import BaseModel
-from pydantic import ConfigDict
-from typing_extensions import Annotated
-from pydantic.functional_validators import BeforeValidator
-
 
 # Represents an ObjectId field in the database.
 # It will be represented as a `str` on the model so that it can be serialized to JSON.
