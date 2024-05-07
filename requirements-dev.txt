@@ -9,50 +9,59 @@ setuptools>=60.0
 wheel>=0.36
 ipython==8.7.0
 ipykernel==6.19.2
-pathlib==1.0.1                              # https://pypi.org/project/pathlib/
-poetry==1.1.7                               # https://pypi.org/project/poetry/
+pathlib==1.0.1
+poetry==1.1.7
 # Testing
-pytest==7.1.2                               # https://pypi.org/project/pytest/
+pytest==7.1.2
 pytest-cov==3.0.0
 pytest-xdist==2.5.0
 pytest-timeout==1.4.2
 pytest-benchmark==3.4.1
-codecov==2.1.11                             # https://pypi.org/project/codecov/
-tox==3.28.0                                 # https://pypi.org/project/tox/
-psutil==5.9.0                               # https://pypi.org/project/psutil/
+codecov==2.1.11
+tox==3.28.0
+psutil==5.9.0
 # Commandline Argumente
-argparse==1.4.0                             # https://pypi.org/project/argparse/
+argparse==1.4.0
 # Config File Argumente
-configparser==5.0.2                         # https://pypi.org/project/configparser/
+configparser==5.0.2
 # Remote Debug
 debugpy==1.5.1
 ## Linting/Tooling
-pylint==2.15.5                              # https://pypi.org/project/pylint/
-pylint-json2html==0.4.0                     # https://pypi.org/project/pylint-json2html/
+pylint==2.15.5
+pylint-json2html==0.4.0
 flake8==6.0.0
 flake8-bugbear==23.1.17
 flake8-comprehensions==3.10.1
 mypy==0.981
 mypy-extensions==0.4.3
-autoflake==2.1.1                            # https://pypi.org/project/autoflake/
-pydantic==1.10.2
+autoflake==2.1.1
 isort==5.10.1
-black==22.6.0                               # https://pypi.org/project/black/
+black==22.6.0
 black[jupyter]
 pep8==1.7.1
 autopep8==1.6.0
-pre-commit==2.20.0                          # https://pypi.org/project/pre-commit/
+pre-commit==2.20.0
 git-lfs==1.6
 ## Documentation
-sphinx==5.0.2                               # https://pypi.org/project/Sphinx/
+sphinx==5.0.2
 sphinxcontrib-confluencebuilder==2.0.0
-mkdocs==1.4.2                               # https://pypi.org/project/mkdocs/
+mkdocs==1.4.2
 mkdocstrings==0.19.1
 mkdocs-material==9.0.5
-Pygments==2.14.0
-atlassian
-atlassian-python-api==3.32.2
 
 # Project specific
-pathlib==1.0.1
-pyarrow==12.0.1
+annotated-types==0.6.0
+anyio==3.7.1
+click==8.1.7
+dnspython==2.4.2
+email-validator==2.1.0.post1
+fastapi==0.110.0
+h11==0.14.0
+idna==3.4
+motor==3.3.1
+pydantic==2.6.3
+pydantic-core==2.16.3
+pymongo==4.5.0
+sniffio==1.3.0
+starlette==0.36.3
+typing-extensions==4.8.0
