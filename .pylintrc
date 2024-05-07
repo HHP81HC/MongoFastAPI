@@ -486,7 +486,7 @@ never-returning-functions=sys.exit,argparse.parse_error
 ignore-comments=yes
 
 # Docstrings are removed from the similarity computation
-ignore-docstrings=yes
+ignore-docstrings=no
 
 # Imports are removed from the similarity computation
 ignore-imports=yes
