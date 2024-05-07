@@ -1,4 +1,3 @@
-# Standard library
 # My Stuff
 from src.utils.client import db
 from src.schemas.student import StudentModel
