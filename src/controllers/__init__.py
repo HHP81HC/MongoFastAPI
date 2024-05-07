@@ -1,1 +1,1 @@
-from .student.router import get_student_router  # noqa
+from .student_repository.router import get_student_router  # noqa
