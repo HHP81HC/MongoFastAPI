@@ -8,8 +8,8 @@ from pydantic import Field
 from pydantic import EmailStr
 from pydantic import BaseModel
 from pydantic import ConfigDict
-from pydantic.functional_validators import BeforeValidator
 from typing_extensions import Annotated
+from pydantic.functional_validators import BeforeValidator
 
 # My Stuff
 from src.utils.optional import partial_model

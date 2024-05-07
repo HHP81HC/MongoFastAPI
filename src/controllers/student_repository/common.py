@@ -4,8 +4,8 @@ from bson import ObjectId
 from fastapi import Body
 from fastapi import HTTPException
 from fastapi import status
-from fastapi.responses import Response
 from pymongo import ReturnDocument
+from fastapi.responses import Response
 
 # My Stuff
 from src.schemas.student import StudentModel
