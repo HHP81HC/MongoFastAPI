@@ -2,7 +2,7 @@
 from src.schemas.student import StudentModel
 from src.schemas.student import StudentCollection
 from src.schemas.student import UpdateStudentModel
-from src.controllers.student.common import StudentCommonRepository
+from src.controllers.student_repository.common import StudentCommonRepository
 
 from fastapi import Body
 from fastapi import APIRouter
