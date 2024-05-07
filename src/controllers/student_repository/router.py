@@ -1,11 +1,15 @@
 """router.py"""
 # Thied party
-# My Stuff
-from fastapi import APIRouter, Body, status
+from fastapi import Body
+from fastapi import APIRouter
+from fastapi import status
 
+# My Stuff
+from src.schemas.student import StudentModel
+from src.schemas.student import StudentCollection
+from src.schemas.student import UpdateStudentModel
 from src.controllers.student_repository.common import StudentCommonRepository
-from src.schemas.student import (StudentCollection, StudentModel,
-                                 UpdateStudentModel)
+
 
 student_repository = StudentCommonRepository("students")
 

@@ -1,14 +1,17 @@
 """common.py - This module contains the common repository for the student entity."""
 # Third party
-# My Stuff
 from bson import ObjectId
-from fastapi import Body, HTTPException, status
-from fastapi.responses import Response
+from fastapi import Body
+from fastapi import HTTPException
+from fastapi import status
 from pymongo import ReturnDocument
+from fastapi.responses import Response
 
+# My Stuff
+from src.schemas.student import StudentModel
+from src.schemas.student import StudentCollection
+from src.schemas.student import UpdateStudentModel
 from src.controllers.base_repository.interface import BaseRepository
-from src.schemas.student import (StudentCollection, StudentModel,
-                                 UpdateStudentModel)
 
 
 class StudentCommonRepository(BaseRepository):

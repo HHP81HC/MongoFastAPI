@@ -1,7 +1,8 @@
-# My Stuff
 from fastapi import FastAPI
 
+# My Stuff
 from src.controllers.routers import router
+
 
 app = FastAPI(
     title="Mongo Tesing API",

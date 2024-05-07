@@ -2,9 +2,13 @@
 
 # Standard Library
 from copy import deepcopy
-from typing import Any, Optional, Tuple, Type
+from typing import Any
+from typing import Type
+from typing import Tuple
+from typing import Optional
 
-from pydantic import BaseModel, create_model
+from pydantic import BaseModel
+from pydantic import create_model
 from pydantic.fields import FieldInfo
 
 
@@ -22,5 +26,5 @@ def partial_model(model: Type[BaseModel]):
         f"Partial{model.__name__}",
         __base__=model,
         __module__=model.__module__,
-        **{field_name: make_field_optional(field_info) for field_name, field_info in model.__fields__.items()},
+        **{field_name: make_field_optional(field_info) for field_name, field_info in model.model_fields.items()},
     )

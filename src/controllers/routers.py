@@ -1,11 +1,10 @@
 """Create router for API"""
 # Standard Library
-import inspect
 import sys
+import inspect
 
 from fastapi import APIRouter
 
-# My Stuff
 from .student_repository.router import get_student_router
 
 
