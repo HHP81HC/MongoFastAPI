@@ -2,11 +2,14 @@
 from src.schemas.student import StudentModel
 from src.schemas.student import StudentCollection
 from src.schemas.student import UpdateStudentModel
-from src.controllers.student.common import student_repository
+from src.controllers.student.common import StudentCommonRepository
 
 from fastapi import Body
 from fastapi import APIRouter
 from fastapi import status
+
+
+student_repository = StudentCommonRepository("students")
 
 
 def get_student_router() -> APIRouter:
@@ -22,7 +25,7 @@ def get_student_router() -> APIRouter:
         tags=["StudentController"]
     )
     async def create_student(student: StudentModel = Body(...)):
-        return await student_repository.create_student(student)
+        return await student_repository.create_document(student)
 
     @router.get(
         "/students",
@@ -32,7 +35,7 @@ def get_student_router() -> APIRouter:
         tags=["StudentController"]
     )
     async def list_students():
-        return await student_repository.list_students()
+        return await student_repository.list_documents()
 
     @router.get(
         "/students/{id}",
@@ -42,7 +45,7 @@ def get_student_router() -> APIRouter:
         tags=["StudentController"]
     )
     async def show_student(id: str):
-        return await student_repository.show_student(id)
+        return await student_repository.show_document(id)
 
     @router.put(
         "/students/{id}",
@@ -52,7 +55,7 @@ def get_student_router() -> APIRouter:
         tags=["StudentController"]
     )
     async def update_student(id: str, student: UpdateStudentModel = Body(...)):
-        return await student_repository.update_student(id, student)
+        return await student_repository.update_document(id, student)
 
     @router.delete(
         "/students/{id}",
@@ -60,6 +63,6 @@ def get_student_router() -> APIRouter:
         tags=["StudentController"]
     )
     async def delete_student(id: str):
-        return await student_repository.delete_student(id)
+        return await student_repository.delete_document(id)
 
     return router

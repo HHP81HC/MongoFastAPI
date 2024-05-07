@@ -3,6 +3,7 @@ from src.utils.client import db
 from src.schemas.student import StudentModel
 from src.schemas.student import StudentCollection
 from src.schemas.student import UpdateStudentModel
+from src.controllers.base_repository.interface import BaseRepository
 
 from bson import ObjectId
 from fastapi import Body
@@ -13,16 +14,12 @@ from motor.core import AgnosticCollection
 from fastapi.responses import Response
 
 
-class StudentCommonRepository:
+class StudentCommonRepository(BaseRepository):
 
-    def __init__(self) -> None:
-        """
-        Initializes a new instance of the Common class.
-        """
-        # Get the collection from the database
-        self.collection: AgnosticCollection = db.get_collection("students")
+    def __init__(self, collection_name: str) -> None:
+        super().__init__(collection_name)
 
-    async def create_student(self, student: StudentModel = Body(...)):
+    async def create_document(self, student: StudentModel = Body(...)):
         """
         Insert a new student record.
 
@@ -36,7 +33,7 @@ class StudentCommonRepository:
         )
         return created_student
 
-    async def list_students(self):
+    async def list_documents(self):
         """
         List all of the student data in the database.
 
@@ -45,7 +42,7 @@ class StudentCommonRepository:
         print("Get all students")
         return StudentCollection(students=await self.collection.find().to_list(1000))
 
-    async def show_student(self, id: str):
+    async def show_document(self, id: str):
         """
         Get the record for a specific student, looked up by `id`.
         """
@@ -56,7 +53,7 @@ class StudentCommonRepository:
 
         raise HTTPException(status_code=404, detail=f"Student {id} not found")
 
-    async def update_student(self, id: str, student: UpdateStudentModel = Body(...)):
+    async def update_document(self, id: str, student: UpdateStudentModel = Body(...)):
         """
         Update individual fields of an existing student record.
 
@@ -84,7 +81,7 @@ class StudentCommonRepository:
 
         raise HTTPException(status_code=404, detail=f"Student {id} not found")
 
-    async def delete_student(self, id: str):
+    async def delete_document(self, id: str):
         """
         Remove a single student record from the database.
         """
@@ -94,6 +91,3 @@ class StudentCommonRepository:
             return Response(status_code=status.HTTP_204_NO_CONTENT)
 
         raise HTTPException(status_code=404, detail=f"Student {id} not found")
-
-
-student_repository = StudentCommonRepository()
