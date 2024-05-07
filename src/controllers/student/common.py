@@ -1,9 +1,9 @@
 # Standard library
 # My Stuff
-from src.mongo_api.utils.client import db
-from src.mongo_api.schemas.student import StudentModel
-from src.mongo_api.schemas.student import StudentCollection
-from src.mongo_api.schemas.student import UpdateStudentModel
+from src.utils.client import db
+from src.schemas.student import StudentModel
+from src.schemas.student import StudentCollection
+from src.schemas.student import UpdateStudentModel
 
 from bson import ObjectId
 from fastapi import Body

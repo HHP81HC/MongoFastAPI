@@ -3,7 +3,7 @@ from typing import List
 from typing import Optional
 
 # My Stuff
-from src.mongo_api.utils.optional import partial_model
+from src.utils.optional import partial_model
 
 from bson import ObjectId
 from pydantic import Field

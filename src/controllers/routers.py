@@ -4,7 +4,7 @@ import sys
 import inspect
 
 # My Stuff
-from src.mongo_api.controllers import *  # noqa
+from src.controllers import *  # noqa
 
 from fastapi import APIRouter
 

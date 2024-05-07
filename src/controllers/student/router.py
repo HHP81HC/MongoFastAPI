@@ -1,8 +1,8 @@
 # My Stuff
-from src.mongo_api.schemas.student import StudentModel
-from src.mongo_api.schemas.student import StudentCollection
-from src.mongo_api.schemas.student import UpdateStudentModel
-from src.mongo_api.controllers.student.common import student_repository
+from src.schemas.student import StudentModel
+from src.schemas.student import StudentCollection
+from src.schemas.student import UpdateStudentModel
+from src.controllers.student.common import student_repository
 
 from fastapi import Body
 from fastapi import APIRouter

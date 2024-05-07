@@ -1,5 +1,5 @@
 # My Stuff
-from src.mongo_api.controllers.routers import router
+from src.controllers.routers import router
 
 from fastapi import FastAPI
 
