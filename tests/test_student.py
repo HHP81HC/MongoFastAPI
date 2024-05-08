@@ -46,7 +46,5 @@ class TestStudentAPI(unittest.TestCase):
         self.assertGreater(len(students), 0)
 
 
-
-
 if __name__ == "__main__":
     unittest.main()
