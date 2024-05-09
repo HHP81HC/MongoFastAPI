@@ -12,7 +12,7 @@ from typing_extensions import Annotated
 from pydantic.functional_validators import BeforeValidator
 
 # My Stuff
-from src.utils.optional import partial_model
+from app.utils.optional import partial_model
 
 
 # Represents an ObjectId field in the database.

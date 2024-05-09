@@ -5,10 +5,10 @@ from fastapi import APIRouter
 from fastapi import status
 
 # My Stuff
-from src.schemas.student import StudentModel
-from src.schemas.student import StudentCollection
-from src.schemas.student import UpdateStudentModel
-from src.controllers.student_repository.common import StudentCommonRepository
+from app.schemas.student import StudentModel
+from app.schemas.student import StudentCollection
+from app.schemas.student import UpdateStudentModel
+from app.controllers.student_repository.common import StudentCommonRepository
 
 
 student_repository = StudentCommonRepository("students")

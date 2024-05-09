@@ -6,7 +6,7 @@ from abc import abstractmethod
 from motor.core import AgnosticCollection
 
 # My Stuff
-from src.utils.client import db
+from app.utils.client import db
 
 
 class BaseRepository(ABC):

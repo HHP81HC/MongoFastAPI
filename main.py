@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 # My Stuff
-from src.controllers.routers import router
+from app.controllers.routers import router
 
 
 app = FastAPI(

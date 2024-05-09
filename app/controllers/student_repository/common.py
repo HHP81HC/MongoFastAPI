@@ -8,10 +8,10 @@ from pymongo import ReturnDocument
 from fastapi.responses import Response
 
 # My Stuff
-from src.schemas.student import StudentModel
-from src.schemas.student import StudentCollection
-from src.schemas.student import UpdateStudentModel
-from src.controllers.base_repository.interface import BaseRepository
+from app.schemas.student import StudentModel
+from app.schemas.student import StudentCollection
+from app.schemas.student import UpdateStudentModel
+from app.controllers.base_repository.interface import BaseRepository
 
 
 class StudentCommonRepository(BaseRepository):
