@@ -11,7 +11,7 @@ from fastapi.responses import Response
 from app.schemas.student import StudentModel
 from app.schemas.student import StudentCollection
 from app.schemas.student import UpdateStudentModel
-from app.controllers.base_repository.interface import BaseRepository
+from app.controllers.crud.base import BaseRepository
 
 
 class StudentCommonRepository(BaseRepository):

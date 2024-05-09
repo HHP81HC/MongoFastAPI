@@ -8,7 +8,7 @@ from fastapi import status
 from app.schemas.student import StudentModel
 from app.schemas.student import StudentCollection
 from app.schemas.student import UpdateStudentModel
-from app.controllers.student_repository.common import StudentCommonRepository
+from app.controllers.student.common import StudentCommonRepository
 
 
 student_repository = StudentCommonRepository("students")

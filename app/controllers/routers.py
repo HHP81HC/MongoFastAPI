@@ -5,7 +5,7 @@ import inspect
 
 from fastapi import APIRouter
 
-from .student_repository.router import get_student_router
+from .student.router import get_student_router
 
 
 router = APIRouter(prefix="/api")
