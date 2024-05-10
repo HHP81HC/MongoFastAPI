@@ -1,50 +1,43 @@
-import unittest
-from fastapi.testclient import TestClient
-from main import app  # Assuming your FastAPI app is named 'app'
+import asyncio
+import pytest
+from bson import ObjectId
+from fastapi import HTTPException
+from fastapi.responses import Response
+from app.controllers.student.common import StudentCommonRepository
+from app.schemas.student import StudentModel, UpdateStudentModel
+
+# Define the student data
+student_data = {
+    "name": "Jane Doe",
+    "email": "jdoe@example.com",
+    "course": "Experiments, Science, and Fashion in Nanophotonics",
+    "gpa": 3.0,
+}
 
 
-class TestStudentAPI(unittest.TestCase):
-    def setUp(self):
-        self.client = TestClient(app)
-
-    def tearDown(self):
-        # Clean up any test data if necessary
-        pass
-
-    def test_create_student(self):
-        # Test creating a new student
-        data = {
-            "name": "Jane Doe",
-            "email": "jdoe@example.com",
-            "course": "Experiments, Science, and Fashion in Nanophotonics",
-            "gpa": 3.0,
-        }
-        response = self.client.post("/api/students", json=data)
-        self.assertEqual(response.status_code, 201)
-        created_student = response.json()
-
-        # Assert the created student matches the input data or whatever criteria you have
-        self.assertEqual(created_student['name'], data['name'])
-        self.assertEqual(created_student['email'], data['email'])
-        self.assertEqual(created_student['course'], data['course'])
-        self.assertEqual(created_student['gpa'], data['gpa'])
-
-    def test_list_students(self):
-        # Create a new student to list
-        data = {
-            "name": "Jane Doe",
-            "email": "jdoe@example.com",
-            "course": "Experiments, Science, and Fashion in Nanophotonics",
-            "gpa": 3.0,
-        }
-        self.client.post("/api/students", json=data)
-
-        # Test listing all students
-        response = self.client.get("/api/students")
-        self.assertEqual(response.status_code, 200)
-        students = response.json()['students']
-        self.assertGreater(len(students), 0)
+@pytest.fixture
+def student_repo():
+    # Setup any necessary dependencies or resources
+    repo = StudentCommonRepository("test_collection")
+    yield repo
+    # Teardown any resources if needed
 
 
-if __name__ == "__main__":
-    unittest.main()
+@pytest.mark.asyncio
+async def test_create_document(student_repo):
+    # Create a student document with the provided data
+    created_student = await student_repo.create_document(StudentModel(**student_data))
+    assert created_student is not None
+    assert created_student["name"] == student_data["name"]
+    assert created_student["email"] == student_data["email"]
+    assert created_student["course"] == student_data["course"]
+    assert created_student["gpa"] == student_data["gpa"]
+    assert "_id" in created_student
+
+
+@pytest.mark.asyncio
+async def test_list_documents(student_repo):
+    asyncio.get_running_loop()
+    # Assuming some data exists in the database
+    students = await student_repo.list_documents()
+    assert len(students.students) > 0
