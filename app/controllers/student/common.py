@@ -95,3 +95,6 @@ class StudentCommonRepository(BaseRepository):
             return Response(status_code=status.HTTP_204_NO_CONTENT)
 
         raise HTTPException(status_code=404, detail=f"Student {id} not found")
+
+
+student_repository = StudentCommonRepository("students")

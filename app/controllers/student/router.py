@@ -8,10 +8,7 @@ from fastapi import status
 from app.schemas.student import StudentModel
 from app.schemas.student import StudentCollection
 from app.schemas.student import UpdateStudentModel
-from app.controllers.student.common import StudentCommonRepository
-
-
-student_repository = StudentCommonRepository("students")
+from app.controllers.student.common import student_repository
 
 
 def get_student_router() -> APIRouter:
