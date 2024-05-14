@@ -24,7 +24,7 @@ class StudentCommonRepository(BaseRepository):
     def __init__(self, collection_name: str) -> None:
         super().__init__(collection_name)
 
-    async def create_document(self, student: StudentModel = Body(...)):
+    async def create_document(self, student: StudentModel = Body(...)):     # noqa
         """
         Insert a new student record.
 
@@ -58,7 +58,7 @@ class StudentCommonRepository(BaseRepository):
 
         raise HTTPException(status_code=404, detail=f"Student {id} not found")
 
-    async def update_document(self, id: str, student: UpdateStudentModel = Body(...)):
+    async def update_document(self, id: str, student: UpdateStudentModel = Body(...)):   # noqa
         """
         Update individual fields of an existing student record.
 

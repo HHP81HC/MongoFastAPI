@@ -29,7 +29,7 @@ def get_student_router() -> APIRouter:
         response_model_by_alias=False,
         tags=["StudentController"]
     )
-    async def create_student(student: StudentModel = Body(...)):
+    async def create_student(student: StudentModel = Body(...)):    # noqa
         return await student_repository.create_document(student)
 
     @router.get(
@@ -59,7 +59,7 @@ def get_student_router() -> APIRouter:
         response_model_by_alias=False,
         tags=["StudentController"]
     )
-    async def update_student(id: str, student: UpdateStudentModel = Body(...)):
+    async def update_student(id: str, student: UpdateStudentModel = Body(...)):   # noqa
         return await student_repository.update_document(id, student)
 
     @router.delete(
